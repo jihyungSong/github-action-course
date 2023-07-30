@@ -1,0 +1,12 @@
+name: PART1 - CH3 - Variables 2
+on: workflow_dispatch
+
+jobs:
+    build_1:
+      runs-on: ubuntu-latest
+      env:
+        YOU: Jerry Park
+      steps:
+      - name: Step 1 
+        run: |
+          echo "Run Step 1, Say Hello to $GITHUB_ACTOR"    
