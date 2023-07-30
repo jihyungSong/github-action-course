@@ -1,5 +1,5 @@
 name: PART3 - CH1 - Sample
-on: push
+on: workflow_dispatch
 jobs:
     build:
         runs-on: ubuntu-latest

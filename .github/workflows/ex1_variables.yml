@@ -1,8 +1,5 @@
 name: PART1 - CH3 - Variables
-on: 
-  push:
-    branches:
-    - master
+on: workflow_dispatch
 
 env:
   YOU: Ryan Song
@@ -14,3 +11,8 @@ jobs:
         - name: Step 1 
           run: |
             echo "Run Step 1, Say Hello to $YOU"    
+        - name: Step 2
+          run: |
+            echo "Run Step 2, Say Hello to $YOU"
+          env:
+            YOU: Stephen Lee
