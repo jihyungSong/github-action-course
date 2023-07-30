@@ -1,0 +1,16 @@
+name: PART1 - CH3 - Variables
+on: 
+  push:
+    branches:
+    - master
+
+env:
+  YOU: Ryan Song
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Step 1 
+          run: |
+            echo "Run Step 1, Say Hello to $YOU"    
