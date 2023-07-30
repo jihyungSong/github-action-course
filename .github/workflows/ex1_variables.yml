@@ -5,14 +5,22 @@ env:
   YOU: Ryan Song
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Step 1 
-          run: |
-            echo "Run Step 1, Say Hello to $YOU"    
-        - name: Step 2
-          run: |
-            echo "Run Step 2, Say Hello to $YOU"
-          env:
-            YOU: Stephen Lee
+    build_1:
+      runs-on: ubuntu-latest
+      env:
+        YOU: Jerry Park
+      steps:
+      - name: Step 1 
+        run: |
+          echo "Run Step 1, Say Hello to $YOU"    
+      - name: Step 2
+        run: |
+          echo "Run Step 2, Say Hello to $YOU"
+        env:
+          YOU: Stephen Lee
+    build_2:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Step 1
+        run: |
+          echo "Run Step 1, Say Hello to $YOU"
