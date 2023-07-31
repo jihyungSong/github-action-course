@@ -1,0 +1,12 @@
+name: PART1 - CH3 - Expression
+on: workflow_dispatch
+
+jobs:
+    build_1:
+      runs-on: ubuntu-latest
+      if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master' }}
+
+      steps:
+      - name: Say Hello
+        run: |
+          echo "Say Hello to $GITHUB_ACTOR"    
