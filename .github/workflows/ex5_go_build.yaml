@@ -1,0 +1,22 @@
+name: PART5 - CH5 - CI (Go)
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Move Python Sample code
+        run: |
+          mv sample/go/* ./
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.17'
+      - name: Install dependencies
+        run: go get .
+      - name: Build
+        run: |
+          go build -v ./...

@@ -1,4 +1,4 @@
-name: PART5 - CH3 - NodeJS Build
+name: PART5 - CH3 - CI (NodeJS)
 
 on: workflow_dispatch
 
