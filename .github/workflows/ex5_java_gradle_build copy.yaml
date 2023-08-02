@@ -1,4 +1,4 @@
-name: PART1 - CH5 - Java & Gradle Build
+name: PART5 - CH2 - Java & Gradle Build
 
 on: workflow_dispatch
 
