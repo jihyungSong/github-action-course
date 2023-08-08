@@ -2,30 +2,21 @@
   name: PART3 - CH1 - Step Output 1
   on: workflow_dispatch
   jobs:
-      build:
+      test-job:
           runs-on: ubuntu-latest
           steps:
           - name: Checkout 
             uses: actions/checkout@v2
-          - id: generate-random-string
+          - id: generate-random-id
             name: Generate random string
-            run: |
-              openssl rand -hex 12 >> "$GITHUB_OUTPUT"
+            run: echo "random_id=$RANDOM" >> "$GITHUB_OUTPUT"
           - id: build-project
             name: Build project
             run: |
-              echo "Random ID: ${{ steps.generate-random-string.outputs.GITHUB_OUTPUT }}}"
+              echo "Random ID: ${{ steps.generate-random-id.outputs.random_id }}}"
           - id: run-tests
             name: Run tests
             run: |
-              echo "Random ID: ${{ steps.generate-random-string.outputs.GITHUB_OUTPUT }}}"
-      deploy:
-          needs: build
-          runs-on: ubuntu-latest
-          steps:
-          - id: deploy-to-prod
-            name: Deploy to production
-            run: |
-              echo "Deploying to production server"
-              echo "Random ID: ${{ steps.build-project.outputs.GITHUB_OUTPUT }}"
+              echo "Random ID: ${{ steps.generate-random-id.outputs.random_id }}}"
+
               
