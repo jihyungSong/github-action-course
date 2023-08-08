@@ -1,6 +1,9 @@
 name: PART3 - CH1 - Variables 2
 on: workflow_dispatch
 
+env:
+  GITHUB_ACTOR: "RyanSong"
+  
 jobs:
     build_1:
       runs-on: ubuntu-latest
