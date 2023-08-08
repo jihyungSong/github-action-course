@@ -13,10 +13,8 @@
           - id: build-project
             name: Build project
             run: |
-              echo "Random ID: ${{ steps.generate-random-id.outputs.random_id }}}"
+              echo "Random ID: ${{ steps.generate-random-id.outputs.random_id }}"
           - id: run-tests
             name: Run tests
             run: |
-              echo "Random ID: ${{ steps.generate-random-id.outputs.random_id }}}"
-
-              
+              echo "Random ID: ${{ steps.generate-random-id.outputs.random_id }}"
