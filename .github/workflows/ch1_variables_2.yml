@@ -1,4 +1,4 @@
-name: PART1 - CH3 - Variables 2
+name: PART3 - CH1 - Variables 2
 on: workflow_dispatch
 
 jobs:
