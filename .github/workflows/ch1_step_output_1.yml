@@ -10,8 +10,9 @@
           - id: build-project
             name: Build project
             run: |
-              openssl rand -hex 12 >> "$GITHUB_OUTPUT"
-              echo "Random ID: $GITHUB_OUTPUT"
+              RANDOM_STR=$(openssl rand -hex 12)
+              echo $RANDOM_STR >> "$GITHUB_OUTPUT"
+              echo "Random ID: $RANDOM_STR"
           - id: run-tests
             name: Run tests
             run: |
