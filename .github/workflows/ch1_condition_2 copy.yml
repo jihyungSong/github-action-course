@@ -11,4 +11,5 @@ jobs:
       - name: Auto assign issue
         uses: actions-cool/issues-helper@v1.11
         with:
+          actions: 'add-assignees'
           assignees: ${{ vars.BUG_HUNTERS }}
