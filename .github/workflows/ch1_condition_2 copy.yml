@@ -9,6 +9,6 @@ jobs:
       if: ${{ contains(github.event.issue.labels.*.name, 'bug') }}
       steps:
       - name: Auto assign issue
-        uses: pozil/auto-assign-issue@v1
+        uses: actions-cool/issues-helper@v1.11
         with:
           assignees: ${{ vars.BUG_HUNTERS }}
