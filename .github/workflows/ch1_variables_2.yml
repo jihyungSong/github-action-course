@@ -12,8 +12,8 @@ jobs:
         run: |
           echo "Run Step 1, Say Hello to ${{ env.GITHUB_ACTOR }}"  
           echo "Hello to $GITHUB_ACTOR"
-          echo $GITHUB_ACTION_REPOSITORY 
-      - name: Step 1 
+          echo "$GITHUB_ACTION_REPOSITORY"
+      - name: Step 2
         run: |  
-          echo $GITHUB_HEAD_REF
+          echo "$GITHUB_HEAD_REF"
  
