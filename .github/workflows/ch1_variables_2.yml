@@ -3,11 +3,17 @@ on: workflow_dispatch
 
 env:
   GITHUB_ACTOR: "RyanSong"
-  
+
 jobs:
     build_1:
       runs-on: ubuntu-latest
       steps:
       - name: Step 1 
         run: |
-          echo "Run Step 1, Say Hello to $GITHUB_ACTOR"    
+          echo "Run Step 1, Say Hello to ${{ env.GITHUB_ACTOR }}"  
+          echo "Hello to $GITHUB_ACTOR  
+          echo $GITHUB_ACTION_REPOSITORY 
+      - name: Step 1 
+        run: |  
+          echo $GITHUB_HEAD_REF
+ 
