@@ -7,16 +7,18 @@
           steps:
           - name: Checkout 
             uses: actions/checkout@v2
+          - id: generate-random-string
+            name: Generate random string
+            run: |
+              openssl rand -hex 12 >> "$GITHUB_OUTPUT"
           - id: build-project
             name: Build project
             run: |
-              RANDOM_STR=$(openssl rand -hex 12)
-              echo $RANDOM_STR >> "$GITHUB_OUTPUT"
-              echo "Random ID: $RANDOM_STR"
+              echo "Random ID: ${{ steps.generate-random-string.outputs.GITHUB_OUTPUT }}}"
           - id: run-tests
             name: Run tests
             run: |
-              echo "Random ID: ${{ steps.build-project.outputs.GITHUB_OUTPUT }}}"
+              echo "Random ID: ${{ steps.generate-random-string.outputs.GITHUB_OUTPUT }}}"
       deploy:
           needs: build
           runs-on: ubuntu-latest
