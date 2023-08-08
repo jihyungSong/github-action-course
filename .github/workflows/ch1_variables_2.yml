@@ -4,8 +4,6 @@ on: workflow_dispatch
 jobs:
     build_1:
       runs-on: ubuntu-latest
-      env:
-        YOU: Ryan Song
       steps:
       - name: Step 1 
         run: |
