@@ -1,28 +1,21 @@
 ---
-name: PART3 - CH2 - Workflow Run
+name: PART3 - CH2 - PR
 on: 
-  workflow_run:
-    workflows: ["PART3 - CH2 - Action Trigger with Tags"]
+  pull_request:
     types:
-    - completed
-    branches:
-    - 'release/**'
+    - opened
+    paths:
+    - 'trigger/test'
+
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Checkout 
-          uses: actions/checkout@v2
-        - name: Build project
-          run: |
-            echo "Build Project"
-        - name: Run tests
-          run: |
-            echo "Run Test"
-    deploy:
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-        - name: Deploy to production
-          run: |
-            echo "Deploying to production server"
+  trigger:
+    if: ${{ github.event.pull_request.user.login != 'xxxxx' }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Comment about changes we can't accept"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PR: ${{ github.event.pull_request.html_url }}
+      run: |
+        gh pr edit $PR --add-label "invalid"
+        gh pr comment $PR --body "Sorry, we can't accept changes to this repository from your account. Please contact us if you have any questions."
