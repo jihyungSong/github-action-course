@@ -4,14 +4,14 @@ on:
   issues:
     types: [opened, edited, labeled, unlabeled]
 jobs:
-    auto-assignee:
-      runs-on: ubuntu-latest
-      permissions:
-        issues: write
-      if: ${{ contains(github.event.issue.labels.*.name, 'bug') }}
-      steps:
-      - name: Auto assign issue
-        uses: pozil/auto-assign-issue@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: ${{ vars.BUG_HUNTERS }}
+  auto-assignee:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    if: ${{ contains(github.event.issue.labels.*.name, 'bug') }}
+    steps:
+    - name: Auto assign issue
+      uses: pozil/auto-assign-issue@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        assignees: ${{ vars.BUG_HUNTERS }}

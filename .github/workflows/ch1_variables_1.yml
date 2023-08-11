@@ -6,25 +6,25 @@ env:
   fruit: Apple
 
 jobs:
-    build_1:
-      runs-on: ubuntu-latest
+  build_1:
+    runs-on: ubuntu-latest
+    env:
+      fruit: Orange
+    steps:
+    - name: Step 1 
+      run: |
+        echo "Run Step 1, Make $fruit Juice!"    
+    - name: Step 2
+      run: |
+        echo "Run Step 2, Make $fruit Juice!"    
       env:
-        fruit: Orange
-      steps:
-      - name: Step 1 
-        run: |
-          echo "Run Step 1, Make $fruit Juice!"    
-      - name: Step 2
-        run: |
-          echo "Run Step 2, Make $fruit Juice!"    
-        env:
-          fruit: Strawberry
-      - name: Step 3
-        run: |
-          echo "Run Step 3, Make $fruit Juice!"     
-    build_2:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Step 1
-        run: |
-          echo "Run Step 1, Make $fruit Juice!"
+        fruit: Strawberry
+    - name: Step 3
+      run: |
+        echo "Run Step 3, Make $fruit Juice!"     
+  build_2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step 1
+      run: |
+        echo "Run Step 1, Make $fruit Juice!"

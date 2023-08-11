@@ -6,16 +6,16 @@ env:
   GITHUB_ACTOR: "RyanSong"
 
 jobs:
-    build_1:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Step 1 
-        run: |
-          echo "Run Step 1, Say Hello to ${{ env.GITHUB_ACTOR }}"  
-          echo "Hello to $GITHUB_ACTOR"
-          echo "Event : $GITHUB_EVENT_NAME"
-      - name: Step 2
-        run: |  
-          echo "Job: $GITHUB_JOB"
-          echo "Run ID : $GITHUB_RUN_ID"
+  build_1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step 1 
+      run: |
+        echo "Run Step 1, Say Hello to ${{ env.GITHUB_ACTOR }}"  
+        echo "Hello to $GITHUB_ACTOR"
+        echo "Event : $GITHUB_EVENT_NAME"
+    - name: Step 2
+      run: |  
+        echo "Job: $GITHUB_JOB"
+        echo "Run ID : $GITHUB_RUN_ID"
  

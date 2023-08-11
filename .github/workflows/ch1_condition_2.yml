@@ -2,10 +2,10 @@
 name: PART3 - CH1 - Condition 2
 on: workflow_dispatch
 jobs:
-    build:
-      runs-on: ubuntu-latest
-      if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master' }}
-      steps:
-      - name: Say Hello
-        run: |
-          echo "Say Hello to $GITHUB_ACTOR"    
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master' }}
+    steps:
+    - name: Say Hello
+      run: |
+        echo "Say Hello to $GITHUB_ACTOR"    

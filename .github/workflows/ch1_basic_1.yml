@@ -2,21 +2,21 @@
 name: PART3 - CH1 - Basic Sample
 on: workflow_dispatch
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Checkout 
-          uses: actions/checkout@v2
-        - name: Build project
-          run: |
-            echo "Build Project"
-        - name: Run tests
-          run: |
-            echo "Run Test"
-    deploy:
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-        - name: Deploy to production
-          run: |
-            echo "Deploying to production server"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v2
+    - name: Build project
+      run: |
+        echo "Build Project"
+    - name: Run tests
+      run: |
+        echo "Run Test"
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to production
+      run: |
+        echo "Deploying to production server"
