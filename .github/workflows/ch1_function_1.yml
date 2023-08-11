@@ -1,14 +1,17 @@
 ---
-name: PART3 - CH1 - Function 1
+name: PART3 - CH1 - Function 2
 on: 
   issues:
     types: [opened, edited, labeled, unlabeled]
 jobs:
-    build:
+    auto-assignee:
       runs-on: ubuntu-latest
+      permissions:
+        issues: write
       if: ${{ contains(github.event.issue.labels.*.name, 'bug') }}
       steps:
       - name: Auto assign issue
         uses: pozil/auto-assign-issue@v1
         with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: ${{ vars.BUG_HUNTERS }}
