@@ -1,0 +1,28 @@
+---
+name: PART3 - CH2 - Action Trigger when Push without Workflow
+on: 
+  push:
+    branches:
+    - master
+    paths-ignore:
+    - 'README.md'
+    - '.github/workflows/**'
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout 
+          uses: actions/checkout@v2
+        - name: Build project
+          run: |
+            echo "Build Project"
+        - name: Run tests
+          run: |
+            echo "Run Test"
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+        - name: Deploy to production
+          run: |
+            echo "Deploying to production server"
