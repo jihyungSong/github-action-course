@@ -1,8 +1,9 @@
 ---
-name: PART3 - CH2 - Trigger when Push not test branch
+name: PART3 - CH2 - Trigger when Push all branches except test
 on: 
   push:
     branches:
+      - '*'
       - '!test-**'
 jobs:
   build:
