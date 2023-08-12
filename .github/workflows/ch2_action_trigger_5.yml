@@ -23,3 +23,4 @@ jobs:
       run: |
         gh pr edit $PR --add-label "invalid"
         gh pr comment $PR --body "Sorry, we can't accept changes to this repository from your account. Please contact us if you have any questions."
+        gh pr close $PR
