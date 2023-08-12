@@ -14,7 +14,7 @@ jobs:
     - name: Build project
       run: |
         echo "Build Project"
-        echo "Branch: $GITHUB_REF"
+        echo "GitHub REF: $GITHUB_REF"
     - name: Run tests
       run: |
         echo "Run Test"
