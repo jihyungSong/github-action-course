@@ -1,5 +1,5 @@
 ---
-name: PART3 - CH2 - Action Trigger when Push
+name: PART3 - CH2 - Trigger when Push
 on: 
   push:
     branches:
