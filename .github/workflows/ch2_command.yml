@@ -14,4 +14,16 @@
       - name: Step 3
         run: |
           echo "::debug:: Run Step 3, How to show debug message?"
-          echo "::notice:: Run Step 3, And notice message"
+          echo "::notice Run Step 3, And notice message"
+    job-2:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Step 1
+        run: |
+          echo "::group::Group 1"
+          echo "Group1 START"
+          echo "::endgroup::"
+
+          echo "::group::Group 2"
+          echo "Group2 START"
+          echo "::endgroup::"
