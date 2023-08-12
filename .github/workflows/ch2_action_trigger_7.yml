@@ -1,5 +1,5 @@
 ---
-name: PART3 - CH2 - Schedule for evrery 5 minutes
+name: PART3 - CH2 - Schedule for evrery 20 minutes
 on: 
   schedule:
   - cron: '*/5 * * * *'
