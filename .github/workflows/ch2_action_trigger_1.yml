@@ -3,7 +3,7 @@ name: PART3 - CH2 - Trigger when Push
 on: 
   push:
     branches:
-      - 'release/**'
+      - 'test-**'
 jobs:
   build:
     runs-on: ubuntu-latest
