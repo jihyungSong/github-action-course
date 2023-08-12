@@ -7,6 +7,13 @@ on:
         description: 'Tag to deploy'
         required: true
         default: '1.0.0'
+
+permissions:
+  contents: write
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   tagging:
     runs-on: ubuntu-latest
