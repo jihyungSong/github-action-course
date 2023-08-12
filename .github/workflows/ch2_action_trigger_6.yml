@@ -2,11 +2,11 @@
 name: PART3 - CH2 - Workflow Run
 on: 
   workflow_run:
-    workflows: ["PART3 - CH2 - Action Trigger with Tags"]
+    workflows: ["PART3 - CH2 - Trigger with Tags"]
     types:
     - completed
     branches:
-    - 'release/**'
+    - master
 jobs:
   build:
     runs-on: ubuntu-latest
