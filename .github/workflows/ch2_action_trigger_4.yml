@@ -2,8 +2,6 @@
 name: PART3 - CH2 - Action Trigger with Tags
 on: 
   push:
-    branches:
-    - master
     tags:
     - v1.*
 
