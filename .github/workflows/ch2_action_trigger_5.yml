@@ -1,21 +1,26 @@
 ---
-name: PART3 - CH2 - PR
-on: 
-  pull_request:
-    types:
-    - opened
-    paths:
-    - 'trigger/test'
-
-jobs:
-  trigger:
-    if: ${{ github.event.pull_request.user.login != 'xxxxx' }}
-    runs-on: ubuntu-latest
-    steps:
-    - name: "Comment about changes we can't accept"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PR: ${{ github.event.pull_request.html_url }}
-      run: |
-        gh pr edit $PR --add-label "invalid"
-        gh pr comment $PR --body "Sorry, we can't accept changes to this repository from your account. Please contact us if you have any questions."
+  name: PART3 - CH2 - PR
+  on: 
+    pull_request:
+      types:
+      - opened
+      paths:
+      - 'trigger/test'
+  
+  permissions:
+    contents: read
+    pull-requests: write
+  
+  jobs:
+    trigger:
+      if: ${{ github.event.pull_request.user.login != 'xxxxx' }}
+      runs-on: ubuntu-latest
+      steps:
+      - name: "Comment about changes we can't accept"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr edit $PR --add-label "invalid"
+          gh pr comment $PR --body "Sorry, we can't accept changes to this repository from your account. Please contact us if you have any questions."
+          gh pr close $PR
