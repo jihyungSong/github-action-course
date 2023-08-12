@@ -18,7 +18,7 @@
         env:
           SECRET_MESSAGE: This is secret message
         run: | 
-          echo "::add-mask::$SECRET_MESSAGE""    
+          echo "::add-mask::$SECRET_MESSAGE"    
     job-2:
       runs-on: ubuntu-latest
       steps:
