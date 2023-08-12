@@ -5,11 +5,15 @@ on:
     types:
     - opened
 
+permissions:
+  issues: write
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
     - run: |
         gh issue comment ${{ github.event.issue.html_url }} -b "Thanks for reporting this issue! We will look into it shortly."
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
