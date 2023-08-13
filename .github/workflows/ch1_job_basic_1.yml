@@ -29,10 +29,10 @@ jobs:
     steps:
     - name: Check
       run: |
-        echo "Build ID: {{ $env.build_id }}"
-        echo "Test Output: {{ $env.test_output }}"
+        echo "Build ID: $build_id"
+        echo "Test Output: $test_output"
     - name: Deploy to production
-      if: env.test_output == 'pass'
+      if: ${{ env.test_output == 'pass' }}
       run: |
         echo "Build ID: $build_id"
         echo "Deploying to production server"
