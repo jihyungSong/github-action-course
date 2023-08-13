@@ -3,6 +3,7 @@ name: PART3 - CH1 - Basic Sample
 on: workflow_dispatch
 jobs:
   build:
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
     - name: Checkout 
@@ -14,6 +15,7 @@ jobs:
       run: |
         echo "Run Test"
   deploy:
+    name: Deploy to production
     needs: build
     runs-on: ubuntu-latest
     steps:
