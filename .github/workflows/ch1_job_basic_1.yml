@@ -13,9 +13,11 @@ jobs:
       uses: actions/checkout@v2
     - name: build_project
       run: |
+        echo "build_id=$GITHUB_JOB"
         echo "build_id=$GITHUB_JOB" >> "$GITHUB_OUTPUT"
     - name: test_project
       run: |
+        echo "test_output=pass"
         echo "test_output=pass" >> "$GITHUB_OUTPUT"
   deploy:
     name: Deploy to production
@@ -25,6 +27,10 @@ jobs:
       build_id: ${{ needs.build.outputs.output1 }}
       test_output: ${{ needs.build.outputs.output2 }}
     steps:
+    - name: Check
+      run: |
+        echo "Build ID: {{ $env.build_id }}"
+        echo "Test Output: {{ $env.test_output }}"
     - name: Deploy to production
       if: env.test_output == 'pass'
       run: |
