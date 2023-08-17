@@ -6,7 +6,7 @@ jobs:
     name: Concurrency Job Test 1
     runs-on: ubuntu-latest
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+      group: ${{ github.workflow }}-${{ github.ref }}-1
     steps:
     - id: checkout
       name: Checkout 
@@ -21,7 +21,7 @@ jobs:
     name: Concurrency Job Test 2
     runs-on: ubuntu-latest
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+      group: ${{ github.workflow }}-${{ github.ref }}-1
     steps:
     - id: checkout
       name: Checkout 
@@ -36,7 +36,7 @@ jobs:
     name: Concurrency Job Test 3
     runs-on: ubuntu-latest
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+      group: ${{ github.workflow }}-${{ github.ref }}-1
     steps:
     - id: checkout
       name: Checkout 
@@ -47,3 +47,33 @@ jobs:
     - id: test-6
       name: Test 6
       run: echo "Test 6"
+  job-4:
+    name: Concurrency Job Test 4
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-2
+    steps:
+    - id: checkout
+      name: Checkout 
+      uses: actions/checkout@v3
+    - id: test-7
+      name: Test 7
+      run: echo "Test 7"
+    - id: test-8
+      name: Test 8
+      run: echo "Test 8"
+  job-5:
+    name: Concurrency Job Test 5
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-2
+    steps:
+    - id: checkout
+      name: Checkout 
+      uses: actions/checkout@v3
+    - id: test-9
+      name: Test 9
+      run: echo "Test 9"
+    - id: test-0
+      name: Test 0
+      run: echo "Test 0"
