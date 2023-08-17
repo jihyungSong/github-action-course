@@ -36,7 +36,7 @@ jobs:
     name: Concurrency Job Test 3
     runs-on: ubuntu-latest
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}-1
+      group: ${{ github.workflow }}-${{ github.ref }}-2
     steps:
     - id: checkout
       name: Checkout 
@@ -62,18 +62,3 @@ jobs:
     - id: test-8
       name: Test 8
       run: echo "Test 8"
-  job-5:
-    name: Concurrency Job Test 5
-    runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}-2
-    steps:
-    - id: checkout
-      name: Checkout 
-      uses: actions/checkout@v3
-    - id: test-9
-      name: Test 9
-      run: echo "Test 9"
-    - id: test-0
-      name: Test 0
-      run: echo "Test 0"
