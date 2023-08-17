@@ -18,7 +18,7 @@ jobs:
       name: Test 2
       run: echo "Test 2"
   job-2:
-    name: Concurrency Job Test 1
+    name: Concurrency Job Test 2
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
@@ -32,3 +32,18 @@ jobs:
     - id: test-4
       name: Test 4
       run: echo "Test 4"
+  job-3:
+    name: Concurrency Job Test 3
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+    - id: checkout
+      name: Checkout 
+      uses: actions/checkout@v2
+    - id: test-5
+      name: Test 5
+      run: echo "Test 5"
+    - id: test-6
+      name: Test 6
+      run: echo "Test 6"
