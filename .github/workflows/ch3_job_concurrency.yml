@@ -1,0 +1,34 @@
+---
+name: PART3 - CH3 - Concurrency 1
+on: workflow_dispatch
+jobs:
+  job-1:
+    name: Concurrency Job Test 1
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+    - id: checkout
+      name: Checkout 
+      uses: actions/checkout@v2
+    - id: test-1
+      name: Test 1
+      run: echo "Test 1"
+    - id: test-2
+      name: Test 2
+      run: echo "Test 2"
+  job-2:
+    name: Concurrency Job Test 1
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+    - id: checkout
+      name: Checkout 
+      uses: actions/checkout@v2
+    - id: test-3
+      name: Test 3
+      run: echo "Test 3"
+    - id: test-4
+      name: Test 4
+      run: echo "Test 4"
