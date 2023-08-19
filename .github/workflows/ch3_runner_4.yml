@@ -9,7 +9,7 @@ on:
         default: 'xxx'
 jobs:
   build:
-    name: Multi OS Build
+    name: Build on self-hosted
     strategy:
       matrix:
         version: [10, 12, 14]
