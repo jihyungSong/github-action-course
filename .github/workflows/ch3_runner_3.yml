@@ -1,5 +1,5 @@
 ---
-name: PART3 - CH3 - Multi Runner
+name: PART3 - CH3 - Multi Matrix Runner
 on: workflow_dispatch
 jobs:
   build:
