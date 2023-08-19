@@ -1,0 +1,19 @@
+---
+name: PART3 - CH3 - Multi Runner
+on: workflow_dispatch
+jobs:
+  build:
+    name: Multi OS Build
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - id: checkout
+      name: Checkout 
+      uses: actions/checkout@v2
+    - id: run
+      name: Run
+      run: |
+        echo "$RUNNER_OS"
+        echo "Hello World"
