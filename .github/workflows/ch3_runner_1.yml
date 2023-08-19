@@ -14,7 +14,7 @@ on:
         - 'macos-latest'
 jobs:
   build:
-    name: Multi OS Build
+    name: Build
     runs-on: ${{ github.event.inputs.os }}
     steps:
     - id: checkout
