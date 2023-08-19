@@ -6,7 +6,7 @@ on:
       self-hosted-runner:
         description: 'enter a runner name'
         required: true
-        default: 'xxx'
+        default: 'self-hosted'
 jobs:
   build:
     name: Build on self-hosted
