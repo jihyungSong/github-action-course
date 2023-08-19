@@ -15,4 +15,5 @@ jobs:
     - id: run
       name: Run
       run: |
+        echo "$RUNNER_OS"
         echo "Hello World"
