@@ -8,7 +8,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./sample/python
+        working-directory: ./build_sample/python
     steps:
     - id: checkout
       name: Checkout 

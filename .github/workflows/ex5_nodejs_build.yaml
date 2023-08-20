@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Move NodeJS Sample code
         run: |
-          mv sample/nodejs/* ./
+          mv build_sample/nodejs/* ./
       - name: Setup NodeJS
         uses: actions/setup-node@v3
         with:
