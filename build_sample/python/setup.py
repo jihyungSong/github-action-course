@@ -9,7 +9,7 @@ setup(
     url='https://github.com/jihyungSong/github-action-course',
     install_requires=[],
     packages=find_packages(exclude=[]),
-    keywords=['sample', 'cat', 'human'],
+    keywords=['sample', 'cat', 'human', 'humancat'],
     python_requires='>=3.8',
     package_data={},
     zip_safe=False
