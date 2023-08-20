@@ -1,0 +1,21 @@
+---
+name: PART3 - CH3 - Job Step Sample
+on: workflow_dispatch
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+    - id: checkout
+      name: Checkout 
+      uses: actions/checkout@v2
+    - id: build-test
+      name: Run npm build
+      run: |
+        npm ci
+        npm run build
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USER }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
