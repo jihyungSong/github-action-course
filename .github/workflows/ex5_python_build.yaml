@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f pip_requirements.txt ]; then pip install -r pip_requirements.txt; fi
       - name: Setup Build
         run: |
           python setup.py sdist bdist_wheel
