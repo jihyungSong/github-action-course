@@ -1,0 +1,23 @@
+{
+  "name": "humancat",
+  "version": "0.0.1",
+  "description": "GitHub Action Build Sample",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jihyungSong/github-action-course.git"
+  },
+  "keywords": [
+    "human",
+    "cat",
+    "humancat"
+  ],
+  "author": "jihyungSong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jihyungSong/github-action-course/issues"
+  },
+  "homepage": "https://github.com/jihyungSong/github-action-course#readme"
+}
