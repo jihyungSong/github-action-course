@@ -17,5 +17,4 @@ class Human(object):
         self.age = age
 
     def get_info(self):
-        return 'My name is %s and %d years old.' % (self.name, self.age)
-    
+        return f'My name is {self.name} and {self.age} years old.'
