@@ -18,7 +18,6 @@
       steps:
       - name: "Comment about changes we can't accept"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.html_url }}
         run: |
           gh pr edit $PR --add-label "invalid"
