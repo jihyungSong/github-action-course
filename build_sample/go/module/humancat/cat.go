@@ -1,4 +1,4 @@
-package main
+package humancat
 
 type Cat struct {
 	name   string
