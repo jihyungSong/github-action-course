@@ -1,34 +1,33 @@
 
-export class Human {
+class Cat {
 
-    private name: string;
-    private status: string;
-
-    constructor(name: string) {
+    constructor(name) {
         this.name = name;
         this.status = 'normal';
     }
 
-    public GetName(): string {
+    GetName(){
         return this.name;
     }
 
-    public SetName(name: string): void {
+    SetName(name){
         this.name = name;
     }
 
-    public GetStatus(): string {
+    GetStatus(){
         return this.status;
     }
 
-    public SetStatus(status: string): void {
+    SetStatus(status) {
         if (status !== 'normal' && status !== 'sleepy' && status !== 'hungry' && status !== 'angry') {
             throw new Error('Not allowed status');
         }
         this.status = status;
     }
 
-    public Meow(): string {
+    Meow() {
         return 'Meow~';
     }
 }
+
+module.exports = Cat;
