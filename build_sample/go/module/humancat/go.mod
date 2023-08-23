@@ -1,3 +1,3 @@
-module github.com/github-action-course/build_sample/go/module/hunamcat
+module humancat
 
 go 1.20
