@@ -1,0 +1,15 @@
+---
+name: PART3 - CH4 - Github Token 1
+on:
+  - pull_request_target
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/labeler@v4
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
