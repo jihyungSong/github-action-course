@@ -1,4 +1,4 @@
-name: PART6 - CH1 - DockerHub Configure
+name: PART6 - CH1 - DockerHub build
 on: workflow_dispatch
 jobs:
   build:
