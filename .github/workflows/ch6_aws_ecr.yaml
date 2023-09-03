@@ -1,4 +1,4 @@
-name: PART6 - CH1 - DockerHub build with Multi Platform
+name: PART6 - CH2 - AWS ECR Build and Push
 on: workflow_dispatch
 jobs:
   build:
@@ -13,10 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
       - name: Move Python Sample code
         run: |
           mv build_sample/container_build/* ./
@@ -37,5 +33,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/humancat
-          
+          build-args: |
+            PYTHON_VERSION=${{ github.event.inputs.python-version }}
+
       
