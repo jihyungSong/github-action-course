@@ -2,7 +2,7 @@ name: PART6 - CH4 - GitHub Packages Build and Push
 on: workflow_dispatch
 env:
   REGISTRY: ghcr.io
-  NAMESPACE: humancat
+  NAMESPACE: ${{ vars.NAMESPACE }}
   IMAGE_NAME: humancat-server
 jobs:
   build:
