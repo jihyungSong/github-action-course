@@ -15,4 +15,4 @@ WORKDIR ${SRC_DIR}
 EXPOSE ${PORT}
 
 ENTRYPOINT ["uvicorn"]
-CMD ["main:app"]
+CMD ["main:app", "--host", "0.0.0.0", "--port", "8000"]
