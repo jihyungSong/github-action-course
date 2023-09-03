@@ -2,7 +2,8 @@ name: PART6 - CH4 - GitHub Packages Build and Push
 on: workflow_dispatch
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: humancat
+  NAMESPACE: humancat
+  IMAGE_NAME: humancat-server
 jobs:
   build:
     name: Humancat Server Build
@@ -25,11 +26,11 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Container Build and Push to DockerHub
+      - name: Container Build and Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.NAMESPACE }}/${{ env.IMAGE_NAME }}:latest
       
