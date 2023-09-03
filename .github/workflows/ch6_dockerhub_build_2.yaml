@@ -1,0 +1,39 @@
+name: PART6 - CH1 - DockerHub build
+on: workflow_dispatch
+jobs:
+  build:
+    name: Humancat Build
+    strategy:
+      matrix:
+        platform:
+        - linux/amd64
+        - linux/arm/v6
+        - linux/arm/v7
+        - linux/arm64 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Move Python Sample code
+        run: |
+          mv build_sample/container_build/* ./
+      - name: "Set up Python"
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+      - name: DockerHub Login
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Container Build and Push to DockerHub
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          platform: ${{ matrix.platform }}
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/humancat
+          build-args: |
+            PYTHON_VERSION=${{ github.event.inputs.python-version }}
+
+      
