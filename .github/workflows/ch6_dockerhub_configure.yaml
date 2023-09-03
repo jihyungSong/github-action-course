@@ -23,7 +23,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dockerhub-build-sample:${{ github.event.inputs.python-version }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dockerhub-build-sample
           build-args: |
             PYTHON_VERSION=${{ github.event.inputs.python-version }}
 
