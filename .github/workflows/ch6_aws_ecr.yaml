@@ -6,6 +6,9 @@ jobs:
   build:
     name: Humancat Build
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v3
       - name: Move Python Sample code
