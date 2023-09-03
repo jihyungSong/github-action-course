@@ -25,7 +25,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/humancat
-          build-args: |
-            PYTHON_VERSION=${{ github.event.inputs.python-version }}
+
 
       
