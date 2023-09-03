@@ -1,0 +1,42 @@
+name: PART6 - CH3 - GCP Artifact Registry Build and Push
+on: workflow_dispatch
+env:
+  GOOGLE_CLOUD_ARTIFACT_REGISTRY_REPO: ${{ vars.GOOGLE_CLOUD_ARTIFACT_REGISTRY_REPO }}
+jobs:
+  build:
+    name: Humancat Build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - name: Move Python Sample code
+        run: |
+          mv build_sample/container_build/* ./
+      - name: "Set up Python"
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+      - id: google-cloud-auth
+        name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+            token_format: access_token
+            workload_identity_provider: ${{ secrets.GOOGLE_CLOUD_WORKLOAD_IDENTITY_PROVIDER }}
+            service_account: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT }}
+            access_token_lifetime: 600s
+      - name: Login to Artifact Registry
+        uses: docker/login-action@v1
+        with:
+            registry: asia-northeast3-docker.pkg.dev
+            username: oauth2accesstoken
+            password: ${{ steps.google-cloud-auth.outputs.access_token }}
+      - name: Docker Build
+        run: |
+          docker build -t $GOOGLE_CLOUD_ARTIFACT_REGISTRY_REPO:latest .
+      - name: Push to Artifact Registry
+        run: |
+          docker push $GOOGLE_CLOUD_ARTIFACT_REGISTRY_REPO:$IMAGE_TAG
+
+      
