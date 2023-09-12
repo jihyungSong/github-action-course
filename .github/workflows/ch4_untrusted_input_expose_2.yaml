@@ -1,0 +1,26 @@
+name: PART4 - CH1 - Prevent a contents exposed using Environment Variables
+on: 
+  issues:
+    types: 
+    - opened
+    - edited
+permissions:
+  issues: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Move Sample code
+        run: |
+          mv secret_sample/my_secret.json ./
+          mv secret_sample/secret_passphrase ./
+      - name: Check Issue Title
+        env:
+          TITLE: ${{ github.event.issue.title }}
+        run: |
+          echo $TITLE
+      - name: Auto assign issue
+        uses: pozil/auto-assign-issue@v1
+        with:
+          assignees: ${{ vars.BUG_HUNTERS }}
