@@ -1,7 +1,9 @@
 name: PART4 - CH1 - Contents exposed from untrusted input
 on: 
   issues:
-    types: [opened, edited]
+    types: 
+    - opened
+    - edited
 permissions:
   issues: write
 jobs:
