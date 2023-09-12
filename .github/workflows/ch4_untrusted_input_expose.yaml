@@ -2,6 +2,8 @@ name: PART4 - CH1 - Contents exposed from untrused input
 on: 
   issues:
     types: [opened, edited]
+permissions:
+  issues: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,3 +17,7 @@ jobs:
         run: |
           title="${{ github.event.issue.title }}"
           echo $title
+      - name: Auto assign issue
+        uses: pozil/auto-assign-issue@v1
+        with:
+          assignees: ${{ vars.BUG_HUNTERS }}
