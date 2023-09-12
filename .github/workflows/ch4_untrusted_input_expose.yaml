@@ -1,4 +1,4 @@
-name: PART4 - CH1 - Contents exposed from untrused input
+name: PART4 - CH1 - Contents exposed from untrusted input
 on: 
   issues:
     types: [opened, edited]
