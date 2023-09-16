@@ -46,7 +46,6 @@
     "antd": "^4.17.0",
     "moment-timezone": "^0.5.33",
     "react-moment": "^1.1.1",
-    "react-quill": "^2.0.0-beta.4",
-    "react-quill-mention": "^1.0.0-beta.4"
+    "react-quill": "^2.0.0-beta.4"
   }
 }
