@@ -1,7 +1,7 @@
 name: PART7 - CH3 - Custom Action
 on: workflow_dispatch
 jobs:
-  hello_world_job:
+  humancat-job:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
