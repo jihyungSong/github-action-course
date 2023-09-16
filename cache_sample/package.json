@@ -20,7 +20,6 @@
     "nodemon": "^2.0.15",
     "socket.io": "^4.4.1",
     "socket.io-client": "^4.4.1",
-    "socket.io-express-session": "^1.1.1",
     "express-session": "^1.17.2",
     "cookie-parser": "^1.4.5",
     "connect-mongo": "^4.5.0",
