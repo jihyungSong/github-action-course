@@ -7,10 +7,12 @@ jobs:
     name: A job to say hello
     steps:
       - name: Hello world action step
-        id: hello
-        uses: jihyungSong/hello-world-javascript-action@v1.1
+        id: generate-humancat
+        uses: jihyungSong/humancat@v1.0
         with:
-          who-to-greet: 'CICD Gru'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          human-name: 'Ryan Song'
+          cat-name: 'Haku'
+      - name: Get the output
+        run: |
+          echo "Generated human name is ${{ steps.generate-humancat.outputs.human-name }}"
+          echo "Generated cat name is ${{ steps.generate-humancat.outputs.cat-name }}"
