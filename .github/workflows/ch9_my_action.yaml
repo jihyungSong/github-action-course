@@ -16,4 +16,4 @@ jobs:
           echo "Generated human name is ${{ steps.generate-humancat.outputs.human-name }}."
           echo "${{ steps.generate-humancat.outputs.human-name }} is ${{ steps.generate-humancat.outputs.human-age }} years old." 
           echo "Generated cat name is ${{ steps.generate-humancat.outputs.cat-name }}."
-          echo "${{ steps.generate-humancat.outputs.cat-name }} is ${{ steps.generate-humancat.outputs.cat-status }} now."
+          echo "${{ steps.generate-humancat.outputs.cat-name }}'s condition is ${{ steps.generate-humancat.outputs.cat-status }} now."
