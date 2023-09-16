@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to generate human name and cat name
     steps:
-      - name: Hello action
+      - name: Humancat action
         id: generate-humancat
         uses: jihyungSong/humancat@v1.2
         with:
