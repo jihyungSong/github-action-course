@@ -3,7 +3,7 @@ on: workflow_dispatch
 jobs:
   humancat-job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to generate human name and cat name
     steps:
       - name: Hello world action step
         id: generate-humancat
