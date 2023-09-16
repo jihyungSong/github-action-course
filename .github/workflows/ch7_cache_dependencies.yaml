@@ -28,4 +28,6 @@ jobs:
       - name: Install dependencies
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm install
-    
+      - name: List the state of node modules
+        continue-on-error: true
+        run: npm list
