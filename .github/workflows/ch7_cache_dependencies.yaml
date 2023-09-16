@@ -1,7 +1,7 @@
 name: PART7 - CH1 - Caching Dependencies
 on: workflow_dispatch
 jobs:
-  build:
+  build-using-cache:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -28,6 +28,6 @@ jobs:
       - name: Install dependencies
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm install
-      - name: List the state of node modules
+      - name: List packages from node modules
         continue-on-error: true
         run: npm list
