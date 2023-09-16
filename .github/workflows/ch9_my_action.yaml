@@ -1,6 +1,5 @@
 name: PART7 - CH3 - Custom Action
-on:
-- push
+on: workflow_dispatch
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
