@@ -1,0 +1,18 @@
+name: PART7 - CH1 - No Caching Dependencies
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Move JS Sample code
+        run: |
+          mv cache_sample/* ./
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org/'
+      - name: Install dependencies
+        run: npm install
+    
