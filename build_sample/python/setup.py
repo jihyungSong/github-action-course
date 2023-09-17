@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='humancat',
-    version='0.0.4',
+    version='0.0.5',
     description='GitHub Action Build Test Sample',
     author='jihyungSong',
     author_email='bluese05@gmail.com',
