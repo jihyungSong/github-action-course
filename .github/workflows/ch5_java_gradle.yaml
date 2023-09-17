@@ -45,5 +45,5 @@ jobs:
         role-duration-seconds: 3600
     - name: Upload jar file to S3
       run: |
-        aws s3 cp app/build/libs/ s3://$S3_BUCKET_NAME/ --recursive
+        aws s3 cp app/build/libs/ s3://${{ vars.BUCKET_NAME }}/ --recursive
 
