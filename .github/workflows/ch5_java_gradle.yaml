@@ -25,4 +25,25 @@ jobs:
       with:
         name: java-build-artifacts
         path: app/build/libs
-    
+  s3:
+    name: Upload to S3
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: java-build-artifacts
+    - name: Setup AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-region: us-east-1
+        role-to-assume: ${{ secrets.AWS_ASUME_ROLE_ARN }}
+        role-duration-seconds: 3600
+    - name: Upload jar file to S3
+      run: |
+        aws s3 cp app/build/libs/ s3://$S3_BUCKET_NAME/ --recursive
+
