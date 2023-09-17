@@ -20,8 +20,6 @@ jobs:
         gradle-version: '8.3'
     - name: Build with Gradle
       run: ./gradlew build
-    - name: test
-      run: ls app/build/libs
     - name: Archive build artifacts
       uses: actions/upload-artifact@v2
       with:
