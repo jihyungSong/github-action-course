@@ -1,4 +1,4 @@
-name: PART5 - CH3 - CI (JS)
+name: PART5 - CH2 - CI (JS-Node)
 
 on: workflow_dispatch
 

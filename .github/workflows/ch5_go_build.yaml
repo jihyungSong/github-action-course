@@ -1,4 +1,4 @@
-name: PART5 - CH5 - CI (Go)
+name: PART5 - CH4 - CI (Go)
 on: workflow_dispatch
 permissions:
   contents: read

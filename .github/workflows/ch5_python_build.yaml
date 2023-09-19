@@ -1,4 +1,4 @@
-name: PART5 - CH4 - CI (Python)
+name: PART5 - CH3 - CI (Python)
 on: 
   workflow_dispatch:
     inputs:
