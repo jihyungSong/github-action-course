@@ -4,8 +4,11 @@ on: workflow_dispatch
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        go-version: [1.14.x, 1.15.x, 1.16.x, 1.17.x]
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v3
       - name: Move Golang Sample code
@@ -14,14 +17,23 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.17'
+          go-version: ${{ matrix.go-version }}
       - name: Check linting
         run: |
           go fmt ./...
           go vet ./...
       - name: Run tests
         run: |
-          go test ./...
+          go test *.go
       - name: Build
         run: |
           go build -v ./...
+      - name: Setup AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_ASSUME_ROLE_ARN }}
+          role-duration-seconds: 3600
+      - name: Upload jar file to S3
+        run: |
+          aws s3 cp main s3://${{ vars.BUCKET_NAME }}/
