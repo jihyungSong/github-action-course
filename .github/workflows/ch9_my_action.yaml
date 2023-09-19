@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Humancat action
         id: generate-humancat
-        uses: jihyungSong/humancat@v1.1
+        uses: jihyungSong/humancat@v1.0
         with:
           human-name: 'Ryan Song'
           cat-name: 'Haku'
