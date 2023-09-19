@@ -37,7 +37,7 @@ jobs:
           role-duration-seconds: 3600
       - name: make s3 folde each platform
         run: |
-          aws s3api put-object --bucket ${{ vars.BUCKET_NAME }} --key go-${{ matrix.platform }}-${{ matrix.go-version }}
-      - name: Upload jar file to S3
+          aws s3api put-object --bucket ${{ vars.BUCKET_NAME }} --key go-${{ matrix.platform }}-${{ matrix.go-version }}/ --content-length 0
+      - name: Upload file to S3
         run: |
           aws s3 cp main s3://${{ vars.BUCKET_NAME }}/go-${{ matrix.platform }}-${{ matrix.go-version }}/
