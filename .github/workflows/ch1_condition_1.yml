@@ -10,7 +10,7 @@
         run: |
           echo "Run Step 1, Say Hello"
       - name: Step 2
-        if: github.event_name == 'xxxxxxx'
+        if: github.event_name == 'workflow_dispatch'
         run: |
           echo "Run Step 2, Say Hello"
       
