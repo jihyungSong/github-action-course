@@ -3,7 +3,7 @@
   on: workflow_dispatch
   jobs:
     build:
-      if: github.repository == 'jihyungSong/github-action-course'
+      if: github.repository == 'devbluemoons/github-action-course'
       runs-on: ubuntu-latest
       steps:
       - name: Step 1
