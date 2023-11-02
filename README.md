@@ -1,4 +1,4 @@
 # github-action-course
 
-This is Test
-Push Test
+- This is Test
+- Push Test
